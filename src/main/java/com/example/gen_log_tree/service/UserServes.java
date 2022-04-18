@@ -12,5 +12,7 @@ public interface UserServes {
     UserEntity deleteUser(UserEntity entity);
     UserEntity logIn(UserPostModel userPostModel);
     Boolean checkPassword(String entityPassword, String modelPassword);
+    UserEntity convertUser(UserPostModel postModel);
+    UserEntity logIn(String login);
 
 }
