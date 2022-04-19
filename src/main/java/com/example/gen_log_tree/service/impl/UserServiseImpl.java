@@ -40,7 +40,7 @@ public class UserServiseImpl implements UserServes {
     public UserEntity activeUser(String activCode) {
         UserEntity entity = userRepository.findByActivationCode(activCode).orElse(null);
         if(entity != null){
-            entity.setIsActive(1L);
+            entity.setIsActive(0L);
             return userRepository.save(entity);
         }
         return null;
@@ -62,6 +62,21 @@ public class UserServiseImpl implements UserServes {
     @Override
     public Boolean checkPassword(String entityPassword, String modelPassword) {
         return null;
+    }
+
+    @Override
+    public UserEntity convertUser(UserPostModel postModel) {
+        UserEntity entity = new UserEntity();
+        entity.setLogin(postModel.getLogin());
+        entity.setPassword(postModel.getPassword());
+        entity.setEmail(postModel.getEmail());
+        return entity;
+    }
+
+    @Override
+    public UserEntity logIn(String login) {
+        UserEntity entity = userRepository.findByLogin(login).orElse(null);
+        return entity;
     }
 
 

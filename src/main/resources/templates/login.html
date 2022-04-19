@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title th:text="${main}"></title>
+    <link rel="stylesheet" th:href="@{style/StyleMain.css}">
+</head>
+<body>
+
+<h1> Введите свой логин и пароль и почту для входа</h1>
+
+<form th:action="@{login}" th:object="${userlog}" th:method="POST">
+<input type="text" th:field="*{login}" placeholder="Логин" id="login">
+    <br>
+    <input type="password" th:field="*{password}" placeholder="Введите пароль" id="password">
+    <br>
+    <input type="email" th:field="*{email}" placeholder="Введите логин">
+    <input type="submit" name="Войти">
+
+</form>
+
+</body>
+</html>
